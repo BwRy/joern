@@ -15,6 +15,12 @@ public class ASTNode
 	private boolean isInCFG = false;
 
 	protected LinkedList<ASTNode> children;
+	public LinkedList<ASTNode> getChildren() {
+		return children;
+	}
+
+
+
 	protected int childNumber;
 
 

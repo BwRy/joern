@@ -1,6 +1,6 @@
 package ast.expressions;
 
-public class CallExpressionBase extends PostfixExpression
+public class CallExpressionBase extends Expression //NAVEX PostfixExpression
 {
 	private Expression targetFunc = null;
 	private ArgumentList argumentList = null;

@@ -28,7 +28,10 @@ public class PHPCSVNodeTypes
 	public static final CSVKey FUNCID = new CSVKey("funcid","int");
 	public static final CSVKey CLASSNAME = new CSVKey("classname");
 	public static final CSVKey NAMESPACE = new CSVKey("namespace");
-
+    
+	
+	//NAVEX	
+	public static final CSVKey DB= new CSVKey("db", "string_array");
 	
 	/* node labels */
 	public static final String LABEL_FS = "Filesystem";

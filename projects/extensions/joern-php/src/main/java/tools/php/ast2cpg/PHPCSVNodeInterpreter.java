@@ -628,7 +628,9 @@ public class PHPCSVNodeInterpreter implements CSVRowInterpreter
 		String childnum = row.getFieldForKey(PHPCSVNodeTypes.CHILDNUM);
 		String endlineno = row.getFieldForKey(PHPCSVNodeTypes.ENDLINENO);
 		String name = row.getFieldForKey(PHPCSVNodeTypes.NAME);
-
+		
+		
+		
 		newNode.setProperty(PHPCSVNodeTypes.TYPE.getName(), type);
 		newNode.setFlags(flags);
 		CodeLocation codeloc = new CodeLocation();
@@ -637,7 +639,8 @@ public class PHPCSVNodeInterpreter implements CSVRowInterpreter
 		newNode.setLocation(codeloc);
 		newNode.setProperty(PHPCSVNodeTypes.CHILDNUM.getName(), childnum);
 		if (flags.contains(PHPCSVNodeTypes.FLAG_TOPLEVEL_FILE))
-			newNode.setName("<" + name + ">");
+			{newNode.setName("<" + name + ">");
+			}
 		else if (flags.contains(PHPCSVNodeTypes.FLAG_TOPLEVEL_CLASS))
 			newNode.setName("[" + name + "]");
 		else

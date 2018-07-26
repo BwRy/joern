@@ -25,6 +25,7 @@ import outputModules.csv.exporters.CSVDDGExporter;
 import udg.CFGToUDGConverter;
 import udg.php.useDefAnalysis.PHPASTDefUseAnalyzer;
 import udg.useDefGraph.UseDefGraph;
+import taintAnalysis.TaintAnalysis;
 
 public class Main {
 
@@ -38,6 +39,8 @@ public class Main {
 	static CFGToUDGConverter cfgToUDG = new CFGToUDGConverter();
 	static CFGAndUDGToDefUseCFG udgAndCfgToDefUseCFG = new CFGAndUDGToDefUseCFG();
 	static DDGCreator ddgCreator = new DDGCreator();
+	//NAVEX
+	static TaintAnalysis taintAnalysis = new TaintAnalysis();
 
 	// exporters
 	static CSVCFGExporter csvCFGExporter = new CSVCFGExporter();
@@ -80,6 +83,9 @@ public class Main {
 			UseDefGraph udg = cfgToUDG.convert(cfg);
 			DefUseCFG defUseCFG = udgAndCfgToDefUseCFG.convert(cfg, udg);
 			DDG ddg = ddgCreator.createForDefUseCFG(defUseCFG);
+			//NAVEX 
+			taintAnalysis.startTaintAnalysis(ddg);
+			
 			csvDDGExporter.writeDDGEdges(ddg);
 		}
 
